@@ -1,0 +1,17 @@
+{
+    "name": "element-vir-example",
+    "version": "0.0.0",
+    "private": true,
+    "license": "(MIT or CC0 1.0)",
+    "scripts": {
+        "build": "rm -rf dist && vite --force --config ./configs/vite.config.ts build && cp dist/index.html dist/404.html",
+        "start": "vite --force --config ./configs/vite.config.ts"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.4",
+        "vite": "^4.3.9"
+    },
+    "dependencies": {
+        "element-vir": "^13.0.0"
+    }
+}
