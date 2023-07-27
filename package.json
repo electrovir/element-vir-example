@@ -5,13 +5,27 @@
     "license": "(MIT or CC0 1.0)",
     "scripts": {
         "build": "rm -rf dist && vite --force --config ./configs/vite.config.ts build && cp dist/index.html dist/404.html",
-        "start": "vite --force --config ./configs/vite.config.ts"
+        "start": "virmator frontend",
+        "test": "virmator test-web",
+        "test:all": "concurrently --colors --kill-others-on-fail -c auto --names types,tests,spelling,format,docs \"npm run test:types\" \"npm run test\" \"npm run test:spelling\" \"npm run test:format\" \"npm run test:docs\"",
+        "test:docs": "virmator code-in-markdown check",
+        "test:format": "virmator format check",
+        "test:spelling": "virmator spellcheck",
+        "test:types": "tsc --noEmit"
     },
     "devDependencies": {
-        "typescript": "^5.0.4",
-        "vite": "^4.3.9"
+        "@augment-vir/node-js": "^16.0.0",
+        "concurrently": "^8.2.0",
+        "esbuild": "^0.18.17",
+        "markdown-code-example-inserter": "^0.3.1",
+        "npm-check-updates": "^16.10.17",
+        "prettier": "^2.8.8",
+        "typescript": "^5.1.6",
+        "virmator": "^7.3.0",
+        "vite": "^4.4.7",
+        "vite-tsconfig-paths": "^4.2.0"
     },
     "dependencies": {
-        "element-vir": "^13.0.0"
+        "element-vir": "^16.0.2"
     }
 }

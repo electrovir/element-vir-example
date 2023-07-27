@@ -1,7 +1,5 @@
-import {defineConfig} from 'vite';
+import {defineConfig} from 'virmator/dist/compiled-base-configs/base-vite';
 
-export default defineConfig({
-  clearScreen: false,
-  root: process.cwd(),
-  base: process.env.CI ? '/element-vir-example' : '',
+export default defineConfig({forGitHubPages: true}, (baseConfig) => {
+    return baseConfig;
 });
